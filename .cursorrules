@@ -1,0 +1,75 @@
+# Streamlit Best Practices and Development Guidelines
+
+## 1. Page Structure & Organization
+- Use `st.set_page_config()` at the start of your app for consistent layout settings
+- Implement multi-page applications using Streamlit's native pages feature
+- Organize code into logical sections using `st.markdown("---")` as visual separators
+- Use functions to modularize your code and improve maintainability 
+
+## 2. Performance Optimization
+- Cache expensive computations using `@st.cache_data` or `@st.cache_resource`
+- Load and process data efficiently using chunking for large datasets
+- Implement session state management for storing user data
+- Use lazy loading for heavy components
+
+## 3. Responsive Design
+- Use `st.columns()` with appropriate ratios for different layouts
+- Implement responsive containers using percentage-based widths
+- Consider mobile viewports when designing layouts
+- Use flexible layouts that adapt to different screen sizes
+
+## 4. User Experience
+- Provide clear feedback for loading states using `st.spinner()`
+- Implement proper error handling with `try-except` blocks
+- Use progress bars for long-running operations
+- Add helpful tooltips and instructions using `st.help()`
+
+## 5. Visual Consistency
+- Maintain consistent color schemes using custom CSS
+- Use appropriate typography hierarchy
+- Implement consistent spacing and padding
+- Follow a unified design language
+
+## 6. Interactive Elements
+- Use appropriate input widgets for different data types
+- Implement clear form validation
+- Provide immediate feedback for user interactions
+- Use appropriate widget layouts
+
+## 7. Data Visualization
+- Choose appropriate chart types for your data
+- Implement interactive visualizations when useful
+- Use consistent color schemes across charts
+- Provide clear labels and legends
+
+## 8. Security Considerations
+- Never expose sensitive information in the UI
+- Implement proper authentication when needed
+- Sanitize user inputs
+- Use environment variables for sensitive data
+
+## 9. State Management
+- Use `st.session_state` for managing app state
+- Implement proper state initialization
+- Handle state updates efficiently
+- Clear state when appropriate
+
+## 10. Documentation & Code Quality
+- Add clear comments and docstrings
+- Follow PEP 8 style guidelines
+- Use type hints for better code clarity
+- Maintain clear project structure
+
+## 11. Testing & Debugging
+- Use `st.write()` for debugging
+- Implement proper error logging
+- Test on different devices and browsers
+- Use Streamlit's built-in debugging tools
+
+## 12. Performance Monitoring
+- Monitor app metrics using Streamlit's built-in tools
+- Track user interactions when necessary
+- Implement proper logging
+- Monitor resource usage
+
+Remember to regularly update your Streamlit version to access the latest features and improvements.
