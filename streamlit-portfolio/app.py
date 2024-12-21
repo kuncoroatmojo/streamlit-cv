@@ -1,7 +1,11 @@
 import streamlit as st
 from PIL import Image
 import os
+from pathlib import Path
 
+# Get the absolute path to the assets directory
+CURRENT_DIR = Path(__file__).parent
+ASSETS_DIR = CURRENT_DIR / "assets"
 # Konfigurasi halaman dan styling
 st.set_page_config(
     page_title="Kuncoro Atmojo | CV",
@@ -194,10 +198,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Fungsi untuk memuat foto
-def load_image(image_file):
+def load_image(image_name):
     try:
-        return Image.open(image_file)
-    except:
+        image_path = ASSETS_DIR / image_name.replace("assets/", "")
+        return Image.open(image_path)
+    except Exception as e:
+        st.error(f"Error loading image {image_name}: {str(e)}")
         return None
 
 def main():
@@ -210,7 +216,7 @@ def main():
     
     with col1:
         # Profile Section
-        image = load_image("assets/profile_photo.jpg")
+        image = load_image("profile_photo.jpg")
         if image:
             st.markdown("<div class='profile-image-container'>", unsafe_allow_html=True)
             st.image(image, width=300)
@@ -247,10 +253,10 @@ def main():
         st.markdown("### Professional Journey")
         
         # Load logos
-        fithappy_logo = load_image("assets/fithappy_logo.jpeg")
-        itb_logo = load_image("assets/itb_logo.jpeg")
-        iar_logo = load_image("assets/international_animal_rescue_goa_logo.jpeg")
-        kijp_logo = load_image("assets/kijp_logo.jpeg")
+        fithappy_logo = load_image("fithappy_logo.jpeg")
+        itb_logo = load_image("itb_logo.jpeg")
+        iar_logo = load_image("international_animal_rescue_goa_logo.jpeg")
+        kijp_logo = load_image("kijp_logo.jpeg")
         
         # Create columns for logo and content
         logo_col, content_col = st.columns([1, 5])
